@@ -1,0 +1,21 @@
+{
+  "builders": [
+    {
+      "ami_name": "beta-packer-{{timestamp}}",
+      "instance_type": "t2.micro",
+      "region": "us-east-2",
+      "source_ami": "ami-00399ec92321828f5",
+      "tags": {
+        "Name": "packer-ami"
+      },
+      "ssh_username":  "ubuntu",
+      "type": "amazon-ebs"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "./custom-ami.sh"
+    }
+  ]
+}
